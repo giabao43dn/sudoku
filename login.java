@@ -16,6 +16,11 @@ import javax.swing.JTextField;
  */
 public class login extends javax.swing.JFrame {
 
+    private boolean loginSuccessful = false;
+
+    public boolean isLoginSuccessful() {
+        return loginSuccessful;
+    }
     /**
      * Creates new form login
      */
@@ -84,7 +89,7 @@ public class login extends javax.swing.JFrame {
         jButton2.setText("Sign up");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                signUpButtonActionPerformed(evt);
             }
         });
 
@@ -201,24 +206,34 @@ public class login extends javax.swing.JFrame {
     }
     
     private void username1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username1ActionPerformed
-        // TODO add your handling code here:
+        String username = username1.getText();
+        String password = new String(password1.getPassword());
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        if (dbConnection.login(username, password)) {
+            JOptionPane.showMessageDialog(this, "Login successful!");
+            loginSuccessful = true;
+            this.dispose(); // Đóng cửa sổ đăng nhập
+        } else {
+            JOptionPane.showMessageDialog(this, "Login failed!");
+        }
     }//GEN-LAST:event_username1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-DatabaseConnection con = new DatabaseConnection();
-var check = con.login(username1.getText(),password1.getText());// TODO add your handling code here:
-if (check){
-    System.out.println("Dang nhap thanh cong");
-    this.dispose();
-    new main(0).setVisible(true);
-}else {
-JOptionPane.showMessageDialog(this, "Đăng nhập thất bại", "Lỗi", JOptionPane.ERROR_MESSAGE);}
+    DatabaseConnection con = new DatabaseConnection();
+    var check = con.login(username1.getText(),password1.getText());// TODO add your handling code here:
+    if (check){
+        System.out.println("Dang nhap thanh cong");
+        this.dispose();
+        new main(0).setVisible(true);
+    }
+    else {
+        JOptionPane.showMessageDialog(this, "Đăng nhập thất bại", "Lỗi", JOptionPane.ERROR_MESSAGE);}
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-this.dispose();
-new signup().setVisible(true);        // TODO add your handling code here:
+        this.dispose();
+        new signup().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
@@ -265,6 +280,12 @@ new signup().setVisible(true);        // TODO add your handling code here:
         this.requestFocusInWindow();
     }//GEN-LAST:event_formWindowGainedFocus
    
+    private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
+        // Mở giao diện đăng ký
+        signup signUpFrame = new signup();
+        signUpFrame.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -301,6 +322,7 @@ new signup().setVisible(true);        // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton signUpButton;
     private javax.swing.JButton forgotten;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
