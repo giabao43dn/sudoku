@@ -5523,29 +5523,103 @@ public static void main(String[] args) {
         pn1.setLayout(new java.awt.GridLayout(9, 9));
 
         mot.setText("1");
+		mot.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 1);
+			}
+		});
 
         mot1.setText("2");
+		mot1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 2);
+			}
+		});
 
         mot2.setText("4");
-
+		mot2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 4);
+			}
+		});
+	
         mot3.setText("3");
+		mot3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 3);
+			}
+		});
 
         mot4.setText("6");
+		mot4.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 6);
+			}
+		});
 
         mot5.setText("5");
+		mot5.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 5);
+			}
+		});
 
         mot6.setText("8");
+		mot6.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 8);
+			}
+		});
 
         mot7.setText("7");
+		mot7.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 7);
+			}
+		});
 
         mot8.setText("Exit");
         mot8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mot8ActionPerformed(evt);
+                numberButtonActionPerformed(evt, 8);
             }
         });
 
         mot9.setText("9");
+		mot9.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				numberButtonActionPerformed(evt, 9);
+			}
+		});
+		//
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				bt[i][j] = new JButton();
+				bt[i][j].addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						sudokuCellActionPerformed(evt);
+					}
+				});
+				bt[i][j].addKeyListener(this);
+				bt[i][j].setActionCommand(i + " " + j);
+				bt[i][j].setBackground(Color.white);
+				bt[i][j].setFont(new Font("Segoe UI", 1, 30));
+				bt[i][j].setForeground(Color.black);
+				pn1.add(bt[i][j]);
+			}
+			for (int m = 0; m < 9; m += 3) {
+				for (int n = 0; n < 9; n += 3) {
+					bt[m][n].setBorder(BorderFactory.createMatteBorder(3, 3, 1, 1, Color.black));
+					bt[m][n + 2].setBorder(BorderFactory.createMatteBorder(3, 1, 1, 3, Color.black));
+					bt[m + 2][n + 2].setBorder(BorderFactory.createMatteBorder(1, 1, 3, 3, Color.black));
+					bt[m + 2][n].setBorder(BorderFactory.createMatteBorder(1, 3, 3, 1, Color.black));
+					bt[m][n + 1].setBorder(BorderFactory.createMatteBorder(3, 1, 1, 1, Color.black));
+					bt[m + 1][n + 2].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 3, Color.black));
+					bt[m + 2][n + 1].setBorder(BorderFactory.createMatteBorder(1, 1, 3, 1, Color.black));
+					bt[m + 1][n].setBorder(BorderFactory.createMatteBorder(1, 3, 1, 1, Color.black));
+					bt[m + 1][n + 1].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
+				}
+			}
 
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
@@ -5676,31 +5750,6 @@ public static void main(String[] args) {
                 .addContainerGap())
             .addComponent(pn1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        for (int i = 0; i < 9; i++)
-        for (int j = 0; j < 9; j++) {
-            bt[i][j] = new JButton();
-            bt[i][j].addActionListener(this);
-            bt[i][j].addKeyListener(this);
-            bt[i][j].setActionCommand(i + " " + j);
-            bt[i][j].setBackground(Color.white);
-            bt[i][j].setFont(new Font("Segoe UI", 1, 30));
-            bt[i][j].setForeground(Color.black);
-            pn1.add(bt[i][j]);
-        }
-        for (int i = 0; i < 9; i += 3)
-        for (int j = 0; j < 9; j += 3) {
-            bt[i][j].setBorder(BorderFactory.createMatteBorder(3,3,1,1, Color.black));
-            bt[i][j + 2].setBorder(BorderFactory.createMatteBorder(3,1,1,3, Color.black));
-            bt[i + 2][j + 2].setBorder(BorderFactory.createMatteBorder(1,1,3,3, Color.black));
-            bt[i + 2][j].setBorder(BorderFactory.createMatteBorder(1,3,3,1, Color.black));
-            bt[i][j + 1].setBorder(BorderFactory.createMatteBorder(3,1,1,1, Color.black));
-            bt[i + 1][j + 2].setBorder(BorderFactory.createMatteBorder(1,1,1,3, Color.black));
-            bt[i + 2][j + 1].setBorder(BorderFactory.createMatteBorder(1,1,3,1, Color.black));
-            bt[i + 1][j].setBorder(BorderFactory.createMatteBorder(1,3,1,1, Color.black));
-            bt[i + 1][j + 1].setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.black));
-        }
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -5715,11 +5764,6 @@ public static void main(String[] args) {
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 4, Short.MAX_VALUE))
         );
-
-        //timer = new Timer(10,new ActionListener(){
-            //	public void actionPerformed(ActionEvent e) {
-                //	time.setText(next(time));}
-            //	});
     timer = new Timer(10, new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             time.setText(next(time));
@@ -5727,7 +5771,7 @@ public static void main(String[] args) {
     });
 
     setSize(new java.awt.Dimension(1014, 637));
-    setLocationRelativeTo(null);
+    setLocationRelativeTo(null);}
     }// </editor-fold>//GEN-END:initComponents
     
 	public void createMatrix() throws FileNotFoundException {
@@ -5799,7 +5843,37 @@ public static void main(String[] args) {
 	}
     
 
-    private void newgameActionPerformed(java.awt.event.ActionEvent evt) {
+	private void numberButtonActionPerformed(java.awt.event.ActionEvent evt, int number) {
+		if (I >= 0 && J >= 0 && aa[I][J] == 0) {
+			bt[I][J].setText(String.valueOf(number));
+			a[I][J] = number;
+			// Kiểm tra xem số nhập vào có đúng không
+			if (number == A[I][J]) {
+				bt[I][J].setForeground(Color.BLUE);
+			} else {
+				bt[I][J].setForeground(Color.RED);
+			}
+		}
+	}
+    
+	private void sudokuCellActionPerformed(java.awt.event.ActionEvent evt) {
+		String command = evt.getActionCommand();
+		int k = command.indexOf(' ');
+		int i = Integer.parseInt(command.substring(0, k));
+		int j = Integer.parseInt(command.substring(k + 1));
+	
+		// Đánh dấu ô được chọn
+		if (aa[i][j] == 0) {
+			if (I >= 0 && J >= 0) {
+				bt[I][J].setBackground(Color.white); // Bỏ đánh dấu ô trước đó
+			}
+			I = i;
+			J = j;
+			bt[I][J].setBackground(Color.CYAN); // Đánh dấu ô mới
+		}
+	}
+	
+	private void newgameActionPerformed(java.awt.event.ActionEvent evt) {
 		time.setText(next(time));
 		new main(lv.getSelectedIndex()).timer.start();
 
@@ -5862,10 +5936,6 @@ public static void main(String[] args) {
 			}
 		}
     }//GEN-LAST:event_selectActionPerformed
-   
-    private void mot8ActionPerformed(java.awt.event.ActionEvent evt) {
-        System.exit(0);
-    }
 
     private void highscoresActionPerformed(java.awt.event.ActionEvent evt) {
         
@@ -5972,5 +6042,4 @@ public static void main(String[] args) {
     private java.awt.PopupMenu popupMenu1;
     private javax.swing.JComboBox<String> select;
     private javax.swing.JLabel time;
-    
 }
