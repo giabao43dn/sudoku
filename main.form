@@ -48,7 +48,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="panel" min="999" pref="999" max="-2" attributes="0"/>
+              <Component id="panel" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -56,7 +56,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="panel" min="-2" pref="626" max="-2" attributes="0"/>
+              <Component id="panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -64,8 +64,13 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panel">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//timer = new Timer(10,new ActionListener(){&#xa;//&#x9;public void actionPerformed(ActionEvent e) {&#xa;//&#x9;time.setText(next(time));}&#xa;//&#x9;});&#xa;timer = new Timer(10, new ActionListener() {&#xa;&#x9;public void actionPerformed(ActionEvent e) {&#xa;&#x9;time.setText(next(time));&#xa;&#x9;}&#xa;});"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//timer = new Timer(10,new ActionListener(){&#xa;//&#x9;public void actionPerformed(ActionEvent e) {&#xa;//&#x9;time.setText(next(time));}&#xa;//&#x9;});&#xa;timer = new Timer(10, new ActionListener() {&#xa;&#x9;public void actionPerformed(ActionEvent e) {&#xa;&#x9;time.setText(next(time));&#xa;&#x9;}&#xa;});&#xa;&#xa;try {&#xa;&#x9;&#x9;&#x9;creatMatrix();&#xa;&#x9;&#x9;} catch (FileNotFoundException e) {&#xa;&#x9;&#x9;&#x9;// TODO Auto-generated catch block&#xa;&#x9;&#x9;&#x9;e.printStackTrace();&#xa;&#x9;&#x9;}"/>
       </AuxValues>
 
       <Layout>
@@ -105,6 +110,11 @@
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pn1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="for (int i = 0; i &lt; 9; i++)&#xa;&#x9;&#x9;&#x9;for (int j = 0; j &lt; 9; j++) {&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j] = new JButton();&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].addActionListener(this);&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].addKeyListener(this);&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].setActionCommand(i + &quot; &quot; + j);&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].setBackground(Color.white);&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].setFont(new Font(&quot;Segoe UI&quot;, 1, 30));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].setForeground(Color.black);&#xa;&#x9;&#x9;&#x9;&#x9;pn1.add(bt[i][j]);&#xa;&#x9;&#x9;&#x9;}&#xa;&#x9;&#x9;for (int i = 0; i &lt; 9; i += 3)&#xa;&#x9;&#x9;&#x9;for (int j = 0; j &lt; 9; j += 3) {&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j].setBorder(BorderFactory.createMatteBorder(3,3,1,1, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j + 2].setBorder(BorderFactory.createMatteBorder(3,1,1,3, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 2][j + 2].setBorder(BorderFactory.createMatteBorder(1,1,3,3, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 2][j].setBorder(BorderFactory.createMatteBorder(1,3,3,1, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i][j + 1].setBorder(BorderFactory.createMatteBorder(3,1,1,1, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 1][j + 2].setBorder(BorderFactory.createMatteBorder(1,1,1,3, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 2][j + 1].setBorder(BorderFactory.createMatteBorder(1,1,3,1, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 1][j].setBorder(BorderFactory.createMatteBorder(1,3,1,1, Color.black));&#xa;&#x9;&#x9;&#x9;&#x9;bt[i + 1][j + 1].setBorder(BorderFactory.createMatteBorder(1,1,1,1, Color.black));&#xa;&#x9;&#x9;&#x9;}"/>
             <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
@@ -117,6 +127,11 @@
           </Layout>
         </Container>
         <Container class="javax.swing.JPanel" name="panel3">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">

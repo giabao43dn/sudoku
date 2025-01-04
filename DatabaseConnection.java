@@ -12,7 +12,7 @@ public class DatabaseConnection {
     private static final String PASSWORD = "";
 
     static PreparedStatement prepareStatement(String query) {
-        throw new UnsupportedOperationException("Khong duoc ho tro."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private Connection connection;
@@ -21,10 +21,10 @@ public class DatabaseConnection {
     public DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Ket noi thanh cong!");
+            System.out.println("Connected to the database!");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Ket noi that bai!");
+            System.out.println("Failed to connect to the database!");
         }
     }
 
